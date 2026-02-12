@@ -1,0 +1,8 @@
+stages:
+  train:
+    cmd: python train.py
+    deps:
+    - data/sample.csv
+    - train.py
+    outs:
+    - models/model.txt
