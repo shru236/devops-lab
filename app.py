@@ -1,3 +1,4 @@
+import mlflow
 import logging
 import smtplib
 import os
@@ -30,7 +31,12 @@ def send_email(error_message):
 def main():
     try:
         print("Application started")
-        
+
+        mlflow.start_run()
+        mlflow.log_param("model", "dummy-model")
+        mlflow.log_metric("accuracy", 0.95)
+        mlflow.end_run()
+
         # Simulated error for testing
         x = 10 / 0
         

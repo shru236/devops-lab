@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  devops-app:
+    build: .
+    container_name: devops_app_container
+    env_file:
+      - .env
+    volumes:
+      - ./mlruns:/app/mlruns
+      - ./data:/app/data
+      - ./models:/app/models
+    restart: unless-stopped
